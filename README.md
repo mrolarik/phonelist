@@ -1,10 +1,10 @@
 # phonelist
 
 ## Setting
-
+```
 $ chmod +x phonelist  
 $ sudo mv phonelist /etc/bin
-
+```
 
 ## usage:
 
