@@ -11,6 +11,7 @@ $ sudo mv phonelist /etc/bin
 ### show all phone list
 ```
 $ phonelist show  
+
 Name   Phone-number  
 Olarik 1234
 ```
