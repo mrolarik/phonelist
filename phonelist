@@ -1,0 +1,37 @@
+#!/bin/bash
+
+PHONELIST=$HOME/phonelist.txt
+
+if [ $# -lt 1 ]; then
+	echo "Whose phone number did you want? "
+	exit 1
+fi
+
+if [ $1 = "new" ]; then
+	shift
+	echo $* >> $PHONELIST
+	echo $* added to database
+	exit 0
+fi
+
+if [ $1 = "show" ]; then
+	shift
+	echo "Name   Phone-number"
+	cat $PHONELIST | sort
+	exit 0
+fi
+
+if [ ! -s $PHONELIST ]; then
+	echo "No names in the phone list yet!"
+	exit 1
+else
+	grep -i -q "$*" $PHONELIST
+	if [ $? -ne 0 ]; then
+		echo "Sorry, that name was not found in the phone list"
+		exit 1
+	else
+		echo "Name   Phone-number"
+		grep -i "$*" $PHONELIST | sort
+	fi
+	exit 0
+fi
